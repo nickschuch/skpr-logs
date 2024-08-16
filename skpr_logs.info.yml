@@ -1,0 +1,5 @@
+name: Skpr Logs
+description: Monolog integration for Skpr
+package: Logging
+type: module
+core_version_requirement: ">=10"
