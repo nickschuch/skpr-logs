@@ -12,16 +12,10 @@ use Drupal\Core\Config\ConfigFactoryInterface;
  * This class allows logging to stdout and stderr.
  */
 class Stdout implements LoggerInterface {
+
   use RfcLoggerTrait;
 
   const SKPR_LOGS_COMPONENT = 'drupal';
-
-  /**
-   * The message's placeholders parser.
-   *
-   * @var \Drupal\Core\Logger\LogMessageParserInterface
-   */
-  protected $parser;
 
   /**
    * Constructs a Stdout object.
@@ -31,8 +25,10 @@ class Stdout implements LoggerInterface {
    * @param \Drupal\Core\Logger\LogMessageParserInterface $parser
    *   The parser to use when extracting message variables.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, LogMessageParserInterface $parser) {
-    $this->parser = $parser;
+  public function __construct(
+    ConfigFactoryInterface $config_factory,
+    protected LogMessageParserInterface $parser,
+  ) {
   }
 
   /**

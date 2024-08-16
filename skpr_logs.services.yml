@@ -1,6 +1,6 @@
 services:
   logger.skpr_stdout:
     class: Drupal\skpr_logs\Logger\Stdout
-    arguments: ['@config.factory', '@logger.log_message_parser']
+    autowire: true
     tags:
       - { name: logger }
