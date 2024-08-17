@@ -9,7 +9,7 @@ use Drupal\Core\Logger\LogMessageParserInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 
 /**
- * This class allows logging to stdout and stderr.
+ * This class allows logging in JSON format.
  */
 class JsonLogger implements LoggerInterface {
 
@@ -18,7 +18,7 @@ class JsonLogger implements LoggerInterface {
   const SKPR_LOGS_COMPONENT = 'drupal';
 
   /**
-   * Constructs a Stdout object.
+   * Constructs a JsonLogger object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The configuration factory object.
