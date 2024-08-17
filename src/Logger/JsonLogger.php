@@ -11,7 +11,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 /**
  * This class allows logging to stdout and stderr.
  */
-class Stdout implements LoggerInterface {
+class JsonLogger implements LoggerInterface {
 
   use RfcLoggerTrait;
 

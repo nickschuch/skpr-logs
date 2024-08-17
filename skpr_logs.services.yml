@@ -1,6 +1,6 @@
 services:
   logger.skpr_stdout:
-    class: Drupal\skpr_logs\Logger\Stdout
+    class: Drupal\skpr_logs\Logger\JsonLogger
     autowire: true
     tags:
       - { name: logger }
