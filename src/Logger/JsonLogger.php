@@ -59,7 +59,7 @@ class JsonLogger implements LoggerInterface {
       'skpr_component' => self::SKPR_LOGS_COMPONENT,
       // Allows development teams to trace interactions.
       'request_id'     => $_SERVER['HTTP_X_REQUEST_ID'] ?? '',
-      'timestamp'      => $context['timestamp'],
+      'timestamp'      => date('Y-m-d\TH:i:s', $context['timestamp']),
       'severity'       => $severity,
       'message'        => strip_tags($message),
     ]);
