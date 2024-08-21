@@ -1,5 +1,5 @@
 name: Skpr Logs
-description: Monolog integration for Skpr
+description: Logs system events for the Skpr Hosting Platform.
 package: Logging
 type: module
 core_version_requirement: ">=10"
