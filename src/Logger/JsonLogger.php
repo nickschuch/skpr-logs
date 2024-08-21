@@ -18,24 +18,35 @@ class JsonLogger implements LoggerInterface {
   const SKPR_LOGS_COMPONENT = 'drupal';
 
   /**
+   * Stream to write log events to.
+   *
+   * @var string
+   */
+  protected $stream;
+
+  /**
    * Constructs a JsonLogger object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The configuration factory object.
    * @param \Drupal\Core\Logger\LogMessageParserInterface $parser
    *   The parser to use when extracting message variables.
+   * @param string $stream
+   *   Stream to write log events to.
    */
   public function __construct(
     ConfigFactoryInterface $config_factory,
     protected LogMessageParserInterface $parser,
+    string $stream = "php://stderr",
   ) {
+    $this->stream = $stream;
   }
 
   /**
    * {@inheritdoc}
    */
   public function log($level, $message, array $context = []): void {
-    $output = fopen('php://stderr', 'w');
+    $output = fopen($this->stream, 'w');
 
     $severity = strtoupper(RfcLogLevel::getLevels()[$level]);
 
